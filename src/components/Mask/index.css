@@ -1,0 +1,18 @@
+/*
+ * @Author: KiraZz1 1634149028@qq.com
+ * @Date: 2023-03-29 09:38:25
+ * @LastEditors: KiraZz1 1634149028@qq.com
+ * @LastEditTime: 2023-03-29 10:51:45
+ * @FilePath: /my-modal/src/components/Mask/index.css
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE.
+ */
+
+ .mask-container {
+    position: fixed;
+    z-index: 99;
+    background-color: rgb(0 0 0 / 39%);
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+ }
