@@ -1,5 +1,7 @@
 import React, { useCallback, useMemo } from "react";
 import Mask from "../Mask"
+
+import ReactDOM from 'react-dom'
 import "./index.css"
 
 type IProps = {
@@ -63,19 +65,17 @@ export default React.memo<IProps>(({ width = 400, destroyOnClose = false, childr
 
     const modalCardExtraStyle = useMemo(() => ({ width, display: show ? 'block' : 'none' }), [show, width])
 
-    return (
+    if (!destroyOnClose || show) return ReactDOM.createPortal(
         <div className="modal-container" style={modalContainerExtraStyle}>
             <Mask show={show} onClick={() => handleMaskClick()} />
             <div className="modal-card" style={modalCardExtraStyle} >
                 <Header onCancel={() => onCancel && onCancel()} title={title} showCloseBtn={closable} />
-                {destroyOnClose ? (
-                    <>
-                        {show ? children : <></>}
-                    </>
-                ) : children}
+                {children}
             </div>
-        </div>
+        </div>, document.body
     )
+
+    return <></>
 })
 
 
